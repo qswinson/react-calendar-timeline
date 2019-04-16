@@ -6,7 +6,8 @@ import Timeline, {
   TimelineMarkers,
   TodayMarker,
   CustomMarker,
-  CursorMarker
+  CursorMarker,
+  DurationMarker
 } from 'react-calendar-timeline'
 
 import generateFakeData from '../generate-fake-data'
@@ -192,6 +193,20 @@ export default class App extends Component {
               return <div style={newStyles} />
             }}
           </CustomMarker>
+          <DurationMarker
+            startDate={moment()
+              .add(3, 'day')
+              .valueOf()}
+            endDate={moment()
+              .add(3, 'day')
+              .add(1, 'hour')
+              .valueOf()}
+          >
+            {({ styles }) => {
+              const newStyles = { ...styles, backgroundColor: 'yellow' }
+              return <div style={newStyles} />
+            }}
+          </DurationMarker>
           <CursorMarker />
         </TimelineMarkers>
       </Timeline>
